@@ -39,6 +39,19 @@ services:
       - /usr/src/app/node_modules
     command: npm run start:dev auth-app
 
+  go:
+    build:
+      context: ./go-app
+      dockerfile: ./Dockerfile
+    container_name: go-app
+    depends_on:
+      - db
+    environment:
+      - PORT=${PORT}
+    ports:
+      - "8080:8080"
+    command: go run ./cmd/main
+
   app:
     build:
       context: ./

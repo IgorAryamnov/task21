@@ -17,7 +17,7 @@ export class CreateTaskDto {
   readonly description: string;
 
   @ApiProperty({
-    example: { Field: "FieldValue" },
+    example: { "1": "FieldValue" },
     description: "Кастомное поле",
   })
   readonly customFields: string[];
